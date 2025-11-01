@@ -4,7 +4,7 @@ import RotatingTitle from "../components/RotatingTitle";
 
 const Home = () => {
   return (
-    <div className="relative w-full min-h-screen">
+    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden">
       {/* Particle Background */}
       <ParticleBackground />
 
@@ -13,7 +13,7 @@ const Home = () => {
       <div className="absolute bottom-12 right-20 w-50 h-50 max-w-[500px] max-h-[500px] bg-gradient-to-r from-pink-800 via-purple-800 to-blue-800 rounded-full blur-3xl opacity-70 animate-pulse" />
 
       {/* Content */}
-      <div className="w-full relative z-10 flex items-start justify-center min-h-screen px-20 py-5 md:px-12">
+      <div className="w-full relative z-10 flex items-start justify-center min-h-scree px-20 pt-5 md:px-12">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-10 w-full max-w-6xl">
           {/* Left: Text Content */}
           <div className="flex-1 pt-20 md:pt-24 flex flex-col items-center md:items-start text-center md:text-left space-y-4 md:space-y-6 md:ml-6 lg:ml-12">

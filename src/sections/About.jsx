@@ -17,9 +17,9 @@ const About = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-center pt-20 md:pt-28 pb-16 px-4 sm:px-8 md:px-16 gap-8 md:gap-12">
         {/* Image */}
-        <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 rounded-3xl overflow-hidden border-4 border-white shadow-lg flex-shrink-0">
+        <div className="w-32 h-32 sm:w-40 sm:h-40 lg-hidden md:w-52 md:h-52 rounded-3xl overflow-hidden border-4 border-white shadow-lg flex-shrink-0">
           <img
-            src="/boy.jpg"
+            src="/d.png"
             alt="Dayanand Vishwakarma"
             className="w-full h-full object-cover"
           />
