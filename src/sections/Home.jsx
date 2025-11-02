@@ -76,7 +76,7 @@ const Home = () => {
           {/* Right: Image */}
           <div className="flex-1 justify-center md:justify-end hidden md:flex">
             <img
-              src="public/avator.png"
+              src="./avator.png"
               alt="Avatar"
               className="w-55 md:w-96 lg:w-[400px] rounded-xl shadow-2xl object-cover"
             />
