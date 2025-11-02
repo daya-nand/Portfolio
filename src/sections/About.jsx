@@ -19,7 +19,7 @@ const About = () => {
         {/* Image */}
         <div className="w-32 h-32 sm:w-40 sm:h-40 lg-hidden md:w-52 md:h-52 rounded-3xl overflow-hidden border-4 border-white shadow-lg flex-shrink-0">
           <img
-            src="./d.png"
+            src="d.png"
             alt="Dayanand Vishwakarma"
             className="w-full h-full object-cover"
           />
