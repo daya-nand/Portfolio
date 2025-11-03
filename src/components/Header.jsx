@@ -1,15 +1,51 @@
-
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import OverlayMenu from "./OverlayMenu";
 
 const Header = () => {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true); // first load visible
+  const lastScrollY = useRef(0);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      // home section => always visible
+      if (currentY < 500) {
+        setVisible(true);
+        return;
+      }
+
+      // scroll UP => show header for 3s
+      if (currentY < lastScrollY.current) {
+        setVisible(true);
+
+        if (timerRef.current) clearTimeout(timerRef.current);
+
+        timerRef.current = setTimeout(() => setVisible(false), 3000);
+      }
+
+      // save last
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+
+  }, []);
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full bg-transparent z-50">
-        <div className="w-full min-w-[320px] mx-auto flex items-center justify-between p-4">
+      <header
+        className={`
+          fixed top-0 left-0 w-full z-50 transition-transform duration-500
+          ${visible ? "translate-y-0" : "-translate-y-full"}
+        `}
+      >
+        <div className="w-full min-w-[320px] mx-auto flex items-center justify-between p-4 bg-transparent">
           
           {/* Left: Logo + Brand */}
           <div className="flex items-center space-x-2">
@@ -32,19 +68,19 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Right: Reach Out button (hidden on small screens) */}
+          {/* Right: Reach Out button */}
           <div className="hidden md:flex justify-end">
             <a
               href="#"
               className="px-5 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-pink-800 to-blue-800 shadow-md hover:opacity-90 transition-all"
             >
               Reach Out
-            </a>  
+            </a>
           </div>
+
         </div>
       </header>
 
-      {/* Overlay Menu */}
       {isMenuOpen && <OverlayMenu onClose={() => setIsMenuOpen(false)} />}
     </>
   );

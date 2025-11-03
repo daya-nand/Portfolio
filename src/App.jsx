@@ -3,6 +3,7 @@ import CustomCursor from './components/CustomCursor'
 import Header from './components/Header'
 import About from './sections/About'
 import Home from './sections/Home'
+import ProjectsSection from './sections/ProjectsSection'
 import { Skill } from './sections/Skill'
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <Home />
       <About />
       <Skill />
+      <ProjectsSection />
     </div>
   )
 }
